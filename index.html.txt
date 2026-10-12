@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Tonyyy 💗</title>
+
+<style>
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+font-family: "Trebuchet MS", Arial, sans-serif;
+background: linear-gradient(135deg, #ffe5ef, #eee5ff, #fff5f8);
+color: #70445f;
+text-align: center;
+min-height: 100vh;
+}
+
+.screen {
+display: none;
+min-height: 100vh;
+padding: 35px 18px;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.screen.active {
+display: flex;
+}
+
+h1 {
+color: #cf679b;
+font-size: clamp(28px, 6vw, 44px);
+margin-bottom: 12px;
+}
+
+h2 {
+color: #bb6594;
+}
+
+p {
+line-height: 1.8;
+}
+
+.card {
+background: rgba(255,255,255,0.85);
+border: 2px solid #f6c5dc;
+border-radius: 25px;
+padding: 25px;
+width: 100%;
+max-width: 650px;
+box-shadow: 0 10px 30px #d7a6c733;
+margin: 15px auto;
+}
+
+button {
+border: none;
+background: #e68ab6;
+color: white;
+padding: 13px 22px;
+border-radius: 25px;
+margin: 8px;
+font-size: 16px;
+cursor: pointer;
+transition: 0.2s;
+}
+
+button:hover {
+background: #c96198;
+transform: translateY(-2px);
+}
+
+.envelopes {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+max-width: 800px;
+}
+
+.envelope {
+background: #fff8fc;
+border: 2px solid #edb4d1;
+border-radius: 20px;
+padding: 25px 18px;
+width: 220px;
+cursor: pointer;
+box-shadow: 0 7px 20px #c98db522;
+transition: 0.2s;
+}
+
+.envelope:hover {
+transform: translateY(-5px) rotate(-1deg);
+background: #fff0f8;
+}
+
+.envelope .emoji {
+font-size: 55px;
+}
+
+.small {
+font-size: 14px;
+color: #9c6d8a;
+}
+
+.photo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+gap: 15px;
+width: 100%;
+max-width: 800px;
+}
+
+.photo-card {
+background: white;
+padding: 12px;
+border-radius: 16px;
+border: 2px solid #f4c7dc;
+}
+
+.photo-card img {
+width: 100%;
+height: 220px;
+object-fit: cover;
+border-radius: 12px;
+background: #fff0f7;
+}
+
+.photo-card input[type="file"] {
+width: 100%;
+margin: 10px 0;
+font-size: 12px;
+}
+
+.photo-card input[type="text"] {
+width: 100%;
+padding: 9px;
+border: 1px solid #e9b6d0;
+border-radius: 10px;
+}
+
+#secretText {
+white-space: pre-line;
+background: linear-gradient(135deg, #fff0f7, #f1eaff);
+padding: 20px;
+border-radius: 20px;
+border: 1px dashed #e8a0c3;
+line-height: 1.9;
+overflow-wrap: anywhere;
+text-align: left;
+}
+
+.gift {
+font-size: 110px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.gift:hover {
+transform: scale(1.1) rotate(5deg);
+}
+
+.hidden {
+display: none;
+}
+
+footer {
+padding: 20px;
+font-size: 13px;
+color: #9d7390;
+}
+
+@media (max-width: 500px) {
+.card {
+padding: 18px;
+}
+
+.envelope {
+width: 100%;
+max-width: 300px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME SCREEN -->
+<section class="screen active" id="welcome">
+<div class="card">
+<div style="font-size:65px">🎂💗🎀</div>
+<h1>Hey Tonyyy!</h1>
+<h2>Someone made something special for you ✨</h2>
+<p>A little birthday website filled with memories, words, and surprises.</p>
+<p>Are you ready to open your birthday surprises? 🥹🫶🏻</p>
+<button onclick="showScreen('choose')">Let's Begin 💌</button>
+</div>
+<p class="small">Made with lots of love and care ♡</p>
+</section>
+
+<!-- ENVELOPE CHOICE SCREEN -->
+<section class="screen" id="choose">
+<h1>Choose Your Surprise 💌</h1>
+<p>Which envelope will you open first, Tonyyy? 🤭</p>
+
+<div class="envelopes">
+<div class="envelope" onclick="showScreen('letter')">
+<div class="emoji">💌</div>
+<h2>Envelope 1</h2>
+<p>A little birthday letter</p>
+</div>
+
+<div class="envelope" onclick="showScreen('memories')">
+<div class="emoji">📸</div>
+<h2>Envelope 2</h2>
+<p>Our little memories</p>
+</div>
+
+<div class="envelope" onclick="showScreen('secret')">
+<div class="emoji">🤫</div>
+<h2>Envelope 3</h2>
+<p>A secret message</p>
+</div>
+</div>
+
+<button onclick="showScreen('gift')">Skip to the Final Surprise 🎁</button>
+</section>
+
+<!-- BIRTHDAY LETTER -->
+<section class="screen" id="letter">
+<div class="card">
+<div style="font-size:55px">💌</div>
+<h1>Dear Tonyyy,</h1>
+
+<p>
+Happiest birthday to the person who became such a special part of my life. 🥹💗
+I don't know how to explain how much you mean to me, but I'm really happy
+that I have you in my life. 🫶🏻❤️
+</p>
+
+<p>
+You're not just a person to me; you're someone who gave me beautiful memories,
+countless smiles, and moments that I'll always keep close to my heart. 🥺🎀
+</p>
+
+<p>
+I hope this new year of your life brings you happiness, success, peace,
+and everything you've been wishing for. Never stop smiling and being yourself. ✨
+</p>
+
+<p>
+Thank you for being part of my story. Whatever life brings, I hope you always
+remember that our friendship and the memories we share are special to me. 🫂💗
+</p>
+
+<h2>Happy Birthday, Tonyyyy! 🎂❤️</h2>
+<p>— From your best friend 💗</p>
+</div>
+
+<button onclick="showScreen('choose')">Back to Envelopes 💌</button>
+<button onclick="showScreen('memories')">Next: Memories 📸</button>
+</section>
+
+<!-- PHOTO MEMORIES -->
+<section class="screen" id="memories">
+<h1>Our Little Scrapbook 📸</h1>
+<p>Add your favourite pictures and write a caption for each one. 💗</p>
+
+<div class="photo-grid">
+
+<div class="photo-card">
+<img id="photo1" alt="Memory one" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect width='100%25' height='100%25' fill='%23ffe5ef'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='50'%3E📸%3C/text%3E%3C/svg%3E">
+<input type="file" accept="image/*" onchange="uploadPhoto(event, 'photo1')">
+<input type="text" placeholder="Our favourite memory 💗">
+</div>
+
+<div class="photo-card">
+<img id="photo2" alt="Memory two" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect width='100%25' height='100%25' fill='%23eee5ff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='50'%3E🫶%3C/text%3E%3C/svg%3E">
+<input type="file" accept="image/*" onchange="uploadPhoto(event, 'photo2')">
+<input type="text" placeholder="A moment to remember ✨">
+</div>
+
+<div class="photo-card">
+<img id="photo3" alt="Memory three" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect width='100%25' height='100%25' fill='%23fff0d9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='50'%3E🎀%3C/text%3E%3C/svg%3E">
+<input type="file" accept="image/*" onchange="uploadPhoto(event, 'photo3')">
+<input type="text" placeholder="A silly little moment 😂">
+</div>
+
+<div class="photo-card">
+<img id="photo4" alt="Memory four" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect width='100%25' height='100%25' fill='%23e4f5ed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='50'%3E💞%3C/text%3E%3C/svg%3E">
+<input type="file" accept="image/*" onchange="uploadPhoto(event, 'photo4')">
+<input type="text" placeholder="One of my best memories 🥹">
+</div>
+
+</div>
+
+<div class="card">
+<p>Every picture has a story, and I'm glad some of mine include you. 💗</p>
+</div>
+
+<button onclick="showScreen('choose')">Back to Envelopes 💌</button>
+<button onclick="showScreen('secret')">Open the Secret 🤫</button>
+</section>
+
+<!-- SECRET MESSAGE -->
+<section class="screen" id="secret">
+<div class="card">
+<div style="font-size:55px">🤫💗</div>
+<h1>A Little Secret...</h1>
+<p>Some things are easier to write than to say. 🥹</p>
+
+<div id="secretText">Tonyyy, always remember that your friendship and the memories we share are special. 💗
+
+There is something I don't always know how to say to you, so I'm writing it here.
+
+You have become a really special part of my life, and some of my happiest memories have you in them. 🫶🏻✨
+
+Sometimes, even the smallest moments with you become memories that I want to keep forever. Maybe I don't express everything perfectly, but that doesn't mean I don't care. You genuinely matter to me more than you might realize. 🥹💗
+
+And one more little secret… 🤭🎀
+
+If I could keep one thing from all our memories, it would be the feeling of being happy just because you were there. 🫂💗
+
+Happy Birthday once again, Tonyyy! You deserve all the happiness in this world. 🎂✨
+
+— From someone who is really glad you exist. 💌</div>
+</div>
+
+<button onclick="showScreen('choose')">Back to Envelopes 💌</button>
+<button onclick="showScreen('gift')">One Last Surprise 🎁</button>
+</section>
+
+<!-- FINAL GIFT -->
+<section class="screen" id="gift">
+<div class="card">
+<h1>Your Final Surprise, Tonyyy! 🎁</h1>
+<p>There's one more little thing waiting for you...</p>
+
+<div class="gift" onclick="openGift()" id="giftBox">🎁</div>
+<p id="giftHint">Tap the gift box to open it! 👆</p>
+
+<div id="giftMessage" class="hidden">
+<h1>Surprise! 🎉💗</h1>
+
+<p>🎂💗 <strong>Happiest Birthday to my Tonyyyy! 🫂✨</strong></p>
+
+<p>
+Happiest birthday to the person who became such a special part of my life.
+🥹💗 I don't know how to explain how much you mean to me, but I'm really
+happy that I have you in my life. 🫶🏻❤️
+</p>
+
+<p>
+You're not just a person to me; you're someone who gave me beautiful memories,
+countless smiles, and moments that I'll always keep close to my heart. 🥺🎀
+</p>
+
+<p>
+Once again, happiest birthday, my favourite human! 🥳🎀❤️
+Stay happy, stay blessed, and keep smiling that smile of yours. 🧿🫂
+</p>
+
+<p>
+<strong>
+Happy Birthday, Tonyyyy! You are, and always will be,
+a beautiful part of my memories and my life. 🥹💗♾️
+</strong>
+</p>
+
+<div style="font-size:55px">🎂🎉🫶🏻💗</div>
+</div>
+</div>
+
+<button onclick="showScreen('welcome')">Start Again ↻</button>
+</section>
+
+<footer>
+Made especially for Tonyyy 💗 | A little website, a lot of memories ✨
+</footer>
+
+<script>
+function showScreen(screenId) {
+document.querySelectorAll(".screen").forEach(function(screen) {
+screen.classList.remove("active");
+});
+
+document.getElementById(screenId).classList.add("active");
+window.scrollTo(0, 0);
+}
+
+function uploadPhoto(event, imageId) {
+const file = event.target.files[0];
+
+if (file && file.type.startsWith("image/")) {
+const reader = new FileReader();
+
+reader.onload = function() {
+document.getElementById(imageId).src = reader.result;
+};
+
+reader.readAsDataURL(file);
+}
+}
+
+function openGift() {
+document.getElementById("giftBox").textContent = "🎉";
+document.getElementById("giftHint").textContent = "Your surprise is open! 💗";
+document.getElementById("giftMessage").classList.remove("hidden");
+}
+
+// Optional music: press the button to start or stop it.
+let audioContext = null;
+let musicTimer = null;
+let noteIndex = 0;
+
+const notes = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880, 698.46];
+
+function playNote() {
+if (!audioContext) return;
+
+const oscillator = audioContext.createOscillator();
+const gain = audioContext.createGain();
+
+oscillator.type = "sine";
+oscillator.frequency.value = notes[noteIndex % notes.length];
+
+gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+gain.gain.exponentialRampToValueAtTime(0.06, audioContext.currentTime + 0.05);
+gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.35);
+
+oscillator.connect(gain);
+gain.connect(audioContext.destination);
+
+oscillator.start();
+oscillator.stop(audioContext.currentTime + 0.4);
+
+noteIndex++;
+}
+
+function toggleMusic() {
+const button = document.getElementById("musicButton");
+
+if (musicTimer) {
+clearInterval(musicTimer);
+musicTimer = null;
+button.textContent = "Play Music 🎵";
+if (audioContext) audioContext.suspend();
+return;
+}
+
+const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+if (!AudioContextClass) {
+alert("Music is not supported in this browser.");
+return;
+}
+
+if (!audioContext) audioContext = new AudioContextClass();
+
+audioContext.resume();
+playNote();
+musicTimer = setInterval(playNote, 450);
+button.textContent = "Stop Music 🔇";
+}
+</script>
+
+<div style="position:fixed;bottom:12px;right:12px;z-index:10">
+<button id="musicButton" onclick="toggleMusic()">Play Music 🎵</button>
+</div>
+
+</body>
+</html>
